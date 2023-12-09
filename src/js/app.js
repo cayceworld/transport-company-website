@@ -49,7 +49,6 @@ const app = {
     thisApp.navigation = document.querySelector('.navigation');
     thisApp.navLinks = document.querySelectorAll('.nav__link');
 
-
     thisApp.menu.addEventListener('click', function (event) {
       event.preventDefault();
 
@@ -68,16 +67,12 @@ const app = {
     const thisApp = this;
     thisApp.firstWord = document.querySelector('.first-word');
     thisApp.secondWord = document.querySelector('.second-word');
-    console.log(thisApp.firstWord);
-    console.log(thisApp.secondWord);
 
     function toggleSpans() {
-      // Toggle visibility
       thisApp.firstWord.classList.toggle('hidden');
       thisApp.secondWord.classList.toggle('hidden');
     }
 
-    // Run toggleSpans every 5 seconds (5000 milliseconds)
     toggleSpans();
   },
   init: function () {
@@ -85,7 +80,6 @@ const app = {
 
     thisApp.initPages();
     thisApp.initMenu();
-    //thisApp.initAppearEffect();
     setInterval(() => thisApp.initAppearEffect(), 3000);
   },
 };
