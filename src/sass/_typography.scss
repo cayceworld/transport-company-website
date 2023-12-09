@@ -1,0 +1,78 @@
+@mixin adaptive-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: 1200;
+  //$maxWidth: $maxWidth - 320;
+  font-size: calc(
+    #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
+  );
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+
+  color: $color-white;
+  @include adaptive-font(80, 50);
+}
+
+h2 {
+  font-weight: 500;
+  @include adaptive-font(32, 22);
+}
+
+h3 {
+  font-weight: 500;
+  line-height: 29px;
+  @include adaptive-font(24, 15);
+}
+
+%textsmall {
+  font-weight: 400;
+  line-height: 21px;
+  @include adaptive-font(14, 12);
+}
+
+%textbasic {
+  line-height: 29px;
+  font-weight: 400;
+  line-height: 21px;
+  @include adaptive-font(16, 14);
+}
+
+%textsubtitle {
+  font-weight: 400;
+  line-height: 24px;
+
+  @include adaptive-font(20, 16);
+  //line-height: calc(16px + 20 * (100vw / 1200));
+}
+
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 80px;
+  }
+
+  h2 {
+    font-size: 42px;
+    color: $color-main;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  %textsmall {
+    font-size: 14px;
+  }
+
+  %textbasic {
+    font-size: 16px;
+  }
+
+  %textsubtitle {
+    font-size: 20px;
+  }
+}

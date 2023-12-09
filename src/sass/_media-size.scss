@@ -1,0 +1,70 @@
+$break-tiny: 380px;
+$break-small: 550px;
+$break-medium: 800px;
+$break-large: 1200px;
+
+@mixin size-query($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin inv-size-query($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @include size-query($break-tiny) {
+    @content;
+  }
+}
+
+@mixin large-phone {
+  @include size-query($break-small) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include size-query($break-medium) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include size-query($break-large) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media only screen and (min-width: $break-large) {
+    @content;
+  }
+}
+
+@mixin not-mobile {
+  @include inv-size-query($break-tiny) {
+    @content;
+  }
+}
+
+@mixin not-large-phone {
+  @include inv-size-query($break-small) {
+    @content;
+  }
+}
+
+@mixin not-tablet {
+  @include inv-size-query($break-medium) {
+    @content;
+  }
+}
+
+@mixin not-desktop {
+  @include inv-size-query($break-large) {
+    @content;
+  }
+}

@@ -1,0 +1,160 @@
+.upper-nav {
+  color: $color-white;
+  background-color: $color-dark;
+
+  .upper-nav__box {
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+
+    i {
+      color: $color-yellow;
+    }
+
+    a {
+      color: white;
+      font-weight: 300;
+
+      &:hover {
+        color: $color-silwer-black;
+      }
+    }
+
+    a.button {
+      padding: 6px 20px;
+      background-color: $color-yellow;
+      border-radius: 10px;
+
+      
+      color: $color-black;
+      font-weight: 500;
+
+      &:hover {
+        color: $color-black;
+      }
+      
+
+      &:hover {
+        transition: 0.7s all ease;
+        background-color: rgba(255, 238, 0, 0.781);
+      }
+
+      &:active {
+        transition: 0.3s all ease;
+        background-color: $color-dark;
+
+        a {
+          color: $color-white;
+        }
+      }
+    }
+  }
+  @include large-phone {
+    display: none;
+  }
+}
+
+.main-nav {
+  background-color: $color-main;
+}
+
+.main-nav__box {
+  display: flex;
+  padding: 10px 30px;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 100px;
+    @media screen and (max-width: 990px) {
+      display: none;
+    }
+  }
+
+  span {
+    color: $color-white;
+    font-size: 30px;
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+
+  .nav__link {
+    color: $color-white;
+    font-size: 20px;
+    font-weight: 500;
+    height: 20%;
+
+    &:hover {
+      transition: 0.3s all ease-in-out;
+      color: $color-yellow;
+      opacity: 0.5;
+    }
+
+    &:active {
+      color: $color-yellow;
+      opacity: 0.2;
+    }
+  }
+
+  .nav__link.active {
+    color: $color-yellow;
+  }
+}
+
+.navigation {
+  @include tablet {
+    display: none;
+  }
+}
+
+.navigation.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 15px 30px;
+  gap: 10px;
+  top: 147px;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid $color-silwer-black;
+  background-color: $color-main;
+
+  .nav__link {
+    height: auto;
+    font-size: 24px;
+  }
+
+  @include large-phone {
+    top: 98px;
+  }
+}
+
+.burger {
+  background-color: $color-main;
+
+  i {
+    color: $color-white;
+    font-size: 28px;
+
+    &:hover {
+      color: $color-silwer-black;
+    }
+  }
+
+  @include not-tablet {
+    display: none;
+  }
+}
