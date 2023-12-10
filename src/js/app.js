@@ -75,6 +75,93 @@ const app = {
 
     toggleSpans();
   },
+  initReviews: function () {
+    const stargetter = function (starso) {
+      if (starso === 5) {
+        return '<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>';
+      } else if (starso === 4) {
+        return '<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>';
+      } else if (starso === 3) {
+        return '<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>';
+      } else if (starso === 2) {
+        return '<span>&#9733;</span>&nbsp;<span>&#9733;</span>';
+      } else if (starso === 1) {
+        return '&#9734';
+      } else if (starso === 0) {
+        return '&nbsp;';
+      } else {
+        return;
+      }
+    };
+    const reviewbox = document.getElementById('reviews');
+    // eslint-disable-next-line
+    const map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: -33.866, lng: 151.196 },
+      zoom: 15,
+    });
+
+    const request = {
+      placeId: 'ChIJo_Ixgw4fv0cRJtOA6zsP09Y',
+      fields: [
+        'name',
+        'formatted_address',
+        'place_id',
+        'geometry',
+        'reviews',
+        'icon',
+      ],
+    };
+
+    // eslint-disable-next-line
+    var service = new google.maps.places.PlacesService(map);
+
+    service.getDetails(request, function (place, status) {
+      console.log(place.reviews);
+      console.log('status:', status);
+      //
+      let i;
+      for (i = 0; i < place.reviews.length; i++) {
+        reviewbox.innerHTML += `
+        <div class="column">
+        <div class="reviewauthor">
+
+            <div class="profile">
+              <a class="author" target="_blank" href="${
+  place.reviews[i].author_url
+}">
+                  <img class="photo" src="${
+  place.reviews[i].profile_photo_url
+}" alt="Profile Photo">
+                  <p class="authortitle">${place.reviews[i].author_name}</p>
+              </a>
+  
+              <a class="tag" target="_blank" href="${
+  place.reviews[i].author_url
+}">
+                  <img class="google-ico" src="../images/google.svg" alt="Google Logo">
+              </a>
+            </div>
+
+            <div class="rating">
+               <div class="stars">
+                    ${stargetter(place.reviews[i].rating)}
+                </div>
+                <div class="time-descr">${
+  place.reviews[i].relative_time_description
+}</div>
+            </div>
+
+            
+
+        </div>
+        <div class="reviewtext matchy">
+            ${place.reviews[i].text}
+        </div>
+
+    </div>`;
+      }
+    });
+  },
   init: function () {
     const thisApp = this;
 
@@ -83,5 +170,10 @@ const app = {
     setInterval(() => thisApp.initAppearEffect(), 3000);
   },
 };
+
+// eslint-disable-next-line
+function initGoogleMaps() {
+  app.initReviews();
+}
 
 app.init();

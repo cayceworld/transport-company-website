@@ -140,7 +140,7 @@
     color: $color-silwer-text;
   }
 
-  div{
+  div {
     width: 50px;
     height: 2px;
     background-color: $color-main;
@@ -268,7 +268,75 @@
   background-color: $color-silwer-lite;
 }
 
-
 .reviews-content {
   padding: 50px 30px;
+}
+
+.columns {
+  display: flex;
+  gap: 10px;
+}
+
+.column {
+  border: 1px solid $color-silwer-black;
+  border-radius: 8px;
+  padding: 25px;
+  background-color: $color-white;
+}
+
+.reviewauthor {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .profile {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+
+    .photo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .author {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: #202124;
+
+      .authortitle {
+        width: 130px;
+      }
+    }
+  }
+
+  .rating {
+    display: flex;
+
+    justify-content: flex-start;
+    gap: 10px;
+    color: #70757a;
+    font-size: 14px;
+
+    .stars {
+      color: #ffc633;
+      font-size: 15px;
+    }
+  }
+
+  .tag {
+    margin-left: 25px;
+
+    .google-ico {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.reviewtext {
+  margin-top: 10px;
 }
