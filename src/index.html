@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
         rel="stylesheet">
@@ -202,8 +203,14 @@
                             <h2>Kundenbewertungen</h2>
                             <div></div>
                         </div>
-                        <div class="reviews-content__wrapper">
-                            <div id="reviews" class="columns"></div>
+                        <div class="reviews-content__wrapper swiper">
+                            <div id="reviews" class="columns swiper-wrapper">
+
+
+
+                            </div>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
                             <div id="map"></div>
                         </div>
                     </div>
@@ -214,10 +221,12 @@
         <section id="moving-planner">moving</section>
         <section id="contact">contact</section>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/88d9279756.js" crossorigin="anonymous"></script>
     <script defer src="./js/app.js"></script>
     <script defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRxIpQuIKUGj7MrHDRKr1EVX9O5A9EVfc&libraries=places&callback=initGoogleMaps"></script>
-    <script src="https://kit.fontawesome.com/88d9279756.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
