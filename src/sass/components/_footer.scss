@@ -1,0 +1,65 @@
+.foo {
+  background-color: $color-main;
+}
+
+.foo-wrapper__content {
+  padding: 50px 30px;
+  display: grid;
+  gap: 25px;
+  grid: 1fr / repeat(4, 1fr);
+  color: $color-white;
+  @extend %textbasic;
+  font-weight: 300;
+
+  .foo-wrapper__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3 {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    h3::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 45px;
+      height: 2px;
+      background-color: $color-white;
+    }
+
+    a {
+      color: $color-white;
+    }
+  }
+
+  @include tablet {
+    grid: 1fr 1fr/ 1fr 1fr;
+  }
+
+  @include mobile {
+    grid: repeat(4, 1fr) / 1fr;
+
+    p {
+      max-width: 150px;
+    }
+  }
+}
+
+.foo-lower {
+  background-color: $color-dark;
+
+  ul {
+    padding: 5px 30px;
+    display: flex;
+    gap: 15px;
+
+    a {
+      color: $color-white;
+      @extend %textsmall;
+    }
+  }
+}
