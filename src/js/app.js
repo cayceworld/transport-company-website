@@ -188,12 +188,36 @@ const app = {
       },
     });
   },
+  initContactForms: function () {
+    const thisApp = this;
+
+    thisApp.mainContactForm = document.getElementById('mainContactForm');
+
+    thisApp.mainContactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      let formData = new FormData(thisApp.mainContactForm);
+      let response = await fetch('sendmail.php', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        let result = await response.json();
+        alert(result.message); // TODO success displaying
+        thisApp.mainContactForm.reset();
+      } else {
+        alert('Error'); // TODO error displaying
+      }
+    });
+  },
   init: function () {
     const thisApp = this;
 
     document.addEventListener('DOMContentLoaded', function () {
       thisApp.initPages();
       thisApp.initMenu();
+      thisApp.initContactForms();
       setInterval(() => thisApp.initAppearEffect(), 3000);
       setTimeout(() => {
         thisApp.initSwiper();
