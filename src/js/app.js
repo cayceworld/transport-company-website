@@ -2,10 +2,10 @@ const app = {
   initPages: function () {
     const thisApp = this;
 
-    thisApp.pages = document.querySelector('#pages').children;
-    thisApp.navLinks = document.querySelectorAll('.nav a');
+    thisApp.pages = document.querySelector("#pages").children;
+    thisApp.navLinks = document.querySelectorAll(".nav a");
 
-    const idFromHash = window.location.hash.replace('#/', '');
+    const idFromHash = window.location.hash.replace("#/", "");
 
     let pageMatchingHash = thisApp.pages[0].id;
 
@@ -19,15 +19,15 @@ const app = {
     thisApp.activatePage(pageMatchingHash);
 
     for (let link of thisApp.navLinks) {
-      link.addEventListener('click', function (event) {
+      link.addEventListener("click", function (event) {
         const clickedElement = this;
         event.preventDefault();
 
-        const id = clickedElement.getAttribute('href').replace('#', '');
+        const id = clickedElement.getAttribute("href").replace("#", "");
 
         thisApp.activatePage(id);
 
-        window.location.hash = '#/' + id;
+        window.location.hash = "#/" + id;
 
         window.scrollTo({
           top: 0,
@@ -39,45 +39,45 @@ const app = {
     const thisApp = this;
 
     for (let page of thisApp.pages) {
-      page.classList.toggle('active', page.id == pageId);
+      page.classList.toggle("active", page.id == pageId);
     }
 
     for (let link of thisApp.navLinks) {
       link.classList.toggle(
-        'active',
-        link.getAttribute('href') == '#' + pageId
+        "active",
+        link.getAttribute("href") == "#" + pageId
       );
     }
   },
   initMenu: function () {
     const thisApp = this;
 
-    thisApp.menu = document.querySelector('.burger');
-    thisApp.navigation = document.querySelector('.navigation');
-    thisApp.navLinks = document.querySelectorAll('.nav__link');
+    thisApp.menu = document.querySelector(".burger");
+    thisApp.navigation = document.querySelector(".navigation");
+    thisApp.navLinks = document.querySelectorAll(".nav__link");
 
-    thisApp.menu.addEventListener('click', function (event) {
+    thisApp.menu.addEventListener("click", function (event) {
       event.preventDefault();
 
-      thisApp.navigation.classList.toggle('active');
+      thisApp.navigation.classList.toggle("active");
     });
 
     for (let link of thisApp.navLinks) {
-      link.addEventListener('click', function (event) {
+      link.addEventListener("click", function (event) {
         event.preventDefault();
 
-        thisApp.navigation.classList.remove('active');
+        thisApp.navigation.classList.remove("active");
       });
     }
   },
   initAppearEffect: function () {
     const thisApp = this;
-    thisApp.firstWord = document.querySelector('.first-word');
-    thisApp.secondWord = document.querySelector('.second-word');
+    thisApp.firstWord = document.querySelector(".first-word");
+    thisApp.secondWord = document.querySelector(".second-word");
 
     function toggleSpans() {
-      thisApp.firstWord.classList.toggle('hidden');
-      thisApp.secondWord.classList.toggle('hidden');
+      thisApp.firstWord.classList.toggle("hidden");
+      thisApp.secondWord.classList.toggle("hidden");
     }
 
     toggleSpans();
@@ -85,22 +85,22 @@ const app = {
   initReviews: function () {
     const stargetter = function (starso) {
       if (starso === 5) {
-        return '<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>';
+        return "<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>";
       } else if (starso === 4) {
-        return '<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>';
+        return "<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>";
       } else if (starso === 3) {
-        return '<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>';
+        return "<span>&#9733;</span>&nbsp;<span>&#9733;</span>&nbsp;<span>&#9733;</span>";
       } else if (starso === 2) {
-        return '<span>&#9733;</span>&nbsp;<span>&#9733;</span>';
+        return "<span>&#9733;</span>&nbsp;<span>&#9733;</span>";
       } else if (starso === 1) {
-        return '&#9734';
+        return "&#9734";
       } else if (starso === 0) {
-        return '&nbsp;';
+        return "&nbsp;";
       } else {
         return;
       }
     };
-    const reviewbox = document.getElementById('reviews');
+    const reviewbox = document.getElementById("reviews");
     // eslint-disable-next-line
     const map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: -33.866, lng: 151.196 },
@@ -108,14 +108,14 @@ const app = {
     });
 
     const request = {
-      placeId: 'ChIJo_Ixgw4fv0cRJtOA6zsP09Y',
+      placeId: "ChIJo_Ixgw4fv0cRJtOA6zsP09Y",
       fields: [
-        'name',
-        'formatted_address',
-        'place_id',
-        'geometry',
-        'reviews',
-        'icon',
+        "name",
+        "formatted_address",
+        "place_id",
+        "geometry",
+        "reviews",
+        "icon",
       ],
     };
 
@@ -131,17 +131,17 @@ const app = {
 
             <div class="profile">
               <a class="author" target="_blank" href="${
-  place.reviews[i].author_url
-}">
+                place.reviews[i].author_url
+              }">
                   <img class="photo" src="${
-  place.reviews[i].profile_photo_url
-}" alt="Profile Photo">
+                    place.reviews[i].profile_photo_url
+                  }" alt="Profile Photo">
                   <p class="authortitle">${place.reviews[i].author_name}</p>
               </a>
   
               <a class="tag" target="_blank" href="${
-  place.reviews[i].author_url
-}">
+                place.reviews[i].author_url
+              }">
                   <img class="google-ico" src="../images/google.svg" alt="Google Logo">
               </a>
             </div>
@@ -151,8 +151,8 @@ const app = {
                     ${stargetter(place.reviews[i].rating)}
                 </div>
                 <div class="time-descr">${
-  place.reviews[i].relative_time_description
-}</div>
+                  place.reviews[i].relative_time_description
+                }</div>
             </div>
 
             
@@ -174,7 +174,7 @@ const app = {
       loop: true,
 
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
       },
       autoplay: {
         delay: 3000,
@@ -193,19 +193,44 @@ const app = {
       },
     });
   },
+
+  initContactForms: function () {
+    const thisApp = this;
+
+    thisApp.mainContactForm = document.getElementById("mainContactForm");
+
+    thisApp.mainContactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      let formData = new FormData(thisApp.mainContactForm);
+      let response = await fetch("sendmail.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        let result = await response.json();
+        alert(result.message); // TODO success displaying
+        thisApp.mainContactForm.reset();
+      } else {
+        alert("Error"); // TODO error displaying
+      }
+    });
+  },
+
   initUpdateNumbers: function () {
     function updateNumbers() {
       const scrollPosition = window.scrollY || window.pageYOffset;
       const sectionPosition =
-        document.querySelector('.statistics').offsetTop - 600;
+        document.querySelector(".statistics").offsetTop - 600;
 
       if (scrollPosition >= sectionPosition) {
-        const counters = document.querySelectorAll('.value');
+        const counters = document.querySelectorAll(".value");
         const speed = 200;
 
         counters.forEach((counter) => {
           const animate = () => {
-            const value = +counter.getAttribute('akhi');
+            const value = +counter.getAttribute("akhi");
             const data = +counter.innerText;
 
             const time = value / speed;
@@ -222,18 +247,21 @@ const app = {
       }
     }
 
-    window.addEventListener('scroll', updateNumbers);
+    window.addEventListener("scroll", updateNumbers);
   },
   init: function () {
     const thisApp = this;
 
-    thisApp.initPages();
-    thisApp.initMenu();
-    setInterval(() => thisApp.initAppearEffect(), 3000);
-    setTimeout(() => {
-      thisApp.initSwiper();
-    }, 1000);
-    thisApp.initUpdateNumbers();
+    document.addEventListener("DOMContentLoaded", function () {
+      thisApp.initPages();
+      thisApp.initMenu();
+      thisApp.initContactForms();
+      setInterval(() => thisApp.initAppearEffect(), 3000);
+      setTimeout(() => {
+        thisApp.initSwiper();
+      }, 1000);
+      thisApp.initUpdateNumbers();
+    });
   },
 };
 
