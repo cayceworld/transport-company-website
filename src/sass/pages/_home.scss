@@ -85,6 +85,7 @@
       background-color: $color-yellow;
       padding: 10px 15px;
       border-radius: 10px;
+      color: $color-black;
     }
   }
 
@@ -95,7 +96,7 @@
     border: 1px solid #ededed;
     border-radius: 5px;
     padding: 10px 15px 10px 15px;
-
+    color: #000;
     &:focus {
       background-color: #f3f3f3;
     }
@@ -120,9 +121,27 @@
     gap: 5px;
     flex-direction: row;
 
+    input {
+      margin: auto 0;
+      height: 13px;
+    }
+
     label {
       font-size: 12px;
       font-weight: 300;
+    }
+  }
+
+  @include large-phone {
+    padding: 30px 0 20px;
+    border: none;
+    background-color: $color-white;
+    box-shadow: none;
+
+    form {
+      padding: 15px;
+      border: 3px solid $color-silwer-med;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     }
   }
 }
@@ -235,6 +254,9 @@
     @include tablet {
       grid: repeat(2, 1fr) / repeat(2, 1fr);
     }
+    @include large-phone {
+      grid: repeat(4, 1fr) / repeat(1, 1fr);
+    }
   }
 
   &__box {
@@ -265,6 +287,13 @@
       transform: scale(1.1);
     }
   }
+  @include large-phone {
+    .process-content__box {
+      img {
+        width: 45%;
+      }
+    }
+  }
 }
 
 .reviews {
@@ -283,9 +312,12 @@
   border-radius: 8px;
   padding: 25px;
   background-color: $color-white;
-  max-height: 330px;
+  max-height: 305px;
   @media screen and (max-width: 700px) {
     max-height: 290px;
+  }
+  @include large-phone {
+    max-height: 355px;
   }
 }
 
@@ -348,9 +380,12 @@
 }
 
 .swiper {
-  height: 370px;
+  height: 350px;
   @media screen and (max-width: 700px) {
-    max-height: 330px;
+    height: 330px;
+  }
+  @include large-phone {
+    height: 390px;
   }
 }
 

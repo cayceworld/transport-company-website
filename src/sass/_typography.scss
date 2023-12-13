@@ -14,7 +14,7 @@ body {
 h1 {
   font-weight: 700;
   color: $color-white;
-  @include adaptive-font(80, 50);
+  @include adaptive-font(80, 40);
 }
 
 h2 {

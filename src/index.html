@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Bonner Umzug &amp; Transport</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/ico" href="./images/logo_white.ico">
 </head>
 
 <body>
@@ -277,7 +279,7 @@
                     <div class="container">
                         <div class="delivery__content">
                             <div class="delivery__content_box">
-                                <div><img src="./images/transport-process-ico-one.png" alt="process-ico-one"></div>
+                                <div><i class="fa-solid fa-file-circle-check"></i></div>
                                 <div>
                                     <h3>Schritt 1.</h3>
                                     <h2>Füllen Sie das Dokument aus und legen Sie das Budget fest</h2>
@@ -285,7 +287,7 @@
                                 <div><img src="./images/transport-process-one.jpg" alt=""></div>
                             </div>
                             <div class="delivery__content_box">
-                                <div><img src="./images/transport-process-ico-two.png" alt="process-ico-one"></div>
+                                <div><i class="fa-solid fa-box"></i></div>
                                 <div>
                                     <h3>Schritt 2.</h3>
                                     <h2>Fangen Sie an, Ihre Sachen zu packen.</h2>
@@ -293,7 +295,7 @@
                                 <div><img src="./images/transport-process-two.jpg" alt=""></div>
                             </div>
                             <div class="delivery__content_box">
-                                <div><img src="./images/transport-process-ico-three.png" alt="process-ico-one"></div>
+                                <div><i class="fa-solid fa-parachute-box"></i></div>
                                 <div>
                                     <h3>Schritt 3.</h3>
                                     <h2>Zeit, deine Sachen rauszuholen</h2>
@@ -301,7 +303,7 @@
                                 <div><img src="./images/transport-process-three.jpg" alt=""></div>
                             </div>
                             <div class="delivery__content_box">
-                                <div><img src="./images/transport-process-ico-four.png" alt="process-ico-one"></div>
+                                <div><i class="fa-solid fa-box-open"></i></div>
                                 <div>
                                     <h3>Schritt 4.</h3>
                                     <h2>Packen Sie Ihre Sachen aus</h2>
@@ -324,7 +326,9 @@
                                 <div>
                                     <div class="value" akhi="10">0</div> <span>K</span>
                                 </div>
-                                <p>Kunden</p>
+                                <div>
+                                    <p>Kunden</p>
+                                </div>
                             </div>
                             <div class="statictics-content__box">
                                 <div>
@@ -350,37 +354,37 @@
                             <form action="#" method="post" id="detailsContactForm">
                                 <div class="form-box">
                                     <label for="name">Name</label>
-                                    <input type="text" id="det-name" name="name" required>
+                                    <input type="text" tabindex="1" id="det-name" name="name" required>
                                 </div>
 
                                 <div class="form-box">
                                     <label for="phone">Telefonnummer</label>
-                                    <input type="tel" id="det-phone" name="phone" required>
+                                    <input type="tel" tabindex="2" id="det-phone" name="phone" required>
                                 </div>
 
                                 <div class="form-box">
                                     <label for="email">Email Addresse</label>
-                                    <input type="email" id="det-email" name="email">
+                                    <input type="email" tabindex="3" id="det-email" name="email">
                                 </div>
 
                                 <div class="form-box">
                                     <label for="date">Abholdatum</label>
-                                    <input type="date" id="date" name="date">
+                                    <input type="date" tabindex="4" id="date" name="date">
                                 </div>
 
                                 <div class="form-box">
                                     <label for="from">Wo</label>
-                                    <input type="text" id="from" name="from" required>
+                                    <input type="text" tabindex="5" id="from" name="from" required>
                                 </div>
 
                                 <div class="form-box">
                                     <label for="to">Wohin</label>
-                                    <input type="text" id="to" name="to" required>
+                                    <input type="text" tabindex="6" id="to" name="to" required>
                                 </div>
 
                                 <div class="form-box">
                                     <label for="serviceType">Leistungen</label>
-                                    <select id="serviceType" name="serviceType">
+                                    <select id="serviceType" tabindex="7" name="serviceType">
                                         <option value="">-- Auswählen --</option>
                                         <option value="maintenance">Firmenumzug </option>
                                         <option value="repair">Auswählen </option>
@@ -389,10 +393,11 @@
                                     </select>
                                 </div>
 
-                                <button type="submit" class="form-box">Anfrage Senden</button>
+                                <button tabindex="9" type="submit" class="form-box">Anfrage Senden</button>
 
                                 <div class="form-box">
-                                    <input type="checkbox" id="det-policy-checkbox" name="policy-checkbox" required>
+                                    <input tabindex="8" type="checkbox" id="det-policy-checkbox" name="policy-checkbox"
+                                        required>
                                     <label for="message" class="nav">Ja mit absenden meiner Daten stimme ich den
                                         Hinweisen in
                                         der
@@ -1769,11 +1774,15 @@
             </div>
             <div class="foo-lower">
                 <div class="container">
-                    <div class="nav">
-                        <ul>
-                            <li><a href="imprint">Impressum</a></li>
-                            <li><a href="privacy">Datenschutz</a></li>
-                        </ul>
+                    <div class="foo-lower__content">
+                        <div class="nav">
+                            <ul>
+                                <li><a href="imprint">Impressum</a></li>
+                                <li><a href="privacy">Datenschutz</a></li>
+                            </ul>
+                        </div>
+                        <div><span>Designed </span><a target="_blank" href="https://www.web-wizards-studio.com">by
+                                Web Wizard Studio</a></div>
                     </div>
                 </div>
             </div>
