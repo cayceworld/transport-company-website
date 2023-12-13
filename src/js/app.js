@@ -193,7 +193,6 @@ const app = {
       },
     });
   },
-
   initContactForms: function () {
     const thisApp = this;
 
@@ -258,7 +257,6 @@ const app = {
       );
     });
   },
-
   initUpdateNumbers: function () {
     function updateNumbers() {
       const scrollPosition = window.scrollY || window.pageYOffset;
@@ -290,6 +288,22 @@ const app = {
 
     window.addEventListener("scroll", updateNumbers);
   },
+  initCookiesPermit: function () {
+    const thisApp = this;
+    thisApp.banner = document.getElementById("cookie-banner");
+
+    let cookiesPermited =
+      localStorage.getItem("cookiesPermited") === "true" || false;
+
+    function acceptCookies() {
+      cookiesPermited = true;
+      localStorage.setItem("cookiesPermited", cookiesPermited);
+      thisApp.banner.style.display = "none";
+    }
+
+    const acceptButton = document.getElementById("cookie-button");
+    acceptButton.addEventListener("click", acceptCookies);
+  },
   init: function () {
     const thisApp = this;
 
@@ -302,6 +316,7 @@ const app = {
         thisApp.initSwiper();
       }, 1000);
       thisApp.initUpdateNumbers();
+      thisApp.initCookiesPermit();
     });
   },
 };
