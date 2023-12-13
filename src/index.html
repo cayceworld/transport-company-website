@@ -354,37 +354,37 @@
                             <form action="#" method="post" id="detailsContactForm">
                                 <div class="form-box">
                                     <label for="name">Name</label>
-                                    <input type="text" id="det-name" name="name" required>
+                                    <input type="text" tabindex="1" id="det-name" name="name" required>
                                 </div>
 
                                 <div class="form-box">
                                     <label for="phone">Telefonnummer</label>
-                                    <input type="tel" id="det-phone" name="phone" required>
+                                    <input type="tel" tabindex="2" id="det-phone" name="phone" required>
                                 </div>
 
                                 <div class="form-box">
                                     <label for="email">Email Addresse</label>
-                                    <input type="email" id="det-email" name="email">
+                                    <input type="email" tabindex="3" id="det-email" name="email">
                                 </div>
 
                                 <div class="form-box">
                                     <label for="date">Abholdatum</label>
-                                    <input type="date" id="date" name="date">
+                                    <input type="date" tabindex="4" id="date" name="date">
                                 </div>
 
                                 <div class="form-box">
                                     <label for="from">Wo</label>
-                                    <input type="text" id="from" name="from" required>
+                                    <input type="text" tabindex="5" id="from" name="from" required>
                                 </div>
 
                                 <div class="form-box">
                                     <label for="to">Wohin</label>
-                                    <input type="text" id="to" name="to" required>
+                                    <input type="text" tabindex="6" id="to" name="to" required>
                                 </div>
 
                                 <div class="form-box">
                                     <label for="serviceType">Leistungen</label>
-                                    <select id="serviceType" name="serviceType">
+                                    <select id="serviceType" tabindex="7" name="serviceType">
                                         <option value="">-- Auswählen --</option>
                                         <option value="maintenance">Firmenumzug </option>
                                         <option value="repair">Auswählen </option>
@@ -393,10 +393,11 @@
                                     </select>
                                 </div>
 
-                                <button type="submit" class="form-box">Anfrage Senden</button>
+                                <button tabindex="9" type="submit" class="form-box">Anfrage Senden</button>
 
                                 <div class="form-box">
-                                    <input type="checkbox" id="det-policy-checkbox" name="policy-checkbox" required>
+                                    <input tabindex="8" type="checkbox" id="det-policy-checkbox" name="policy-checkbox"
+                                        required>
                                     <label for="message" class="nav">Ja mit absenden meiner Daten stimme ich den
                                         Hinweisen in
                                         der

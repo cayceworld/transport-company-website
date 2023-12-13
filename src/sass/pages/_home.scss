@@ -85,6 +85,7 @@
       background-color: $color-yellow;
       padding: 10px 15px;
       border-radius: 10px;
+      color: $color-black;
     }
   }
 
@@ -119,6 +120,11 @@
   .form-box:last-of-type {
     gap: 5px;
     flex-direction: row;
+
+    input {
+      margin: auto 0;
+      height: 13px;
+    }
 
     label {
       font-size: 12px;
