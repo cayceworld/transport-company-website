@@ -13,6 +13,9 @@
     @include tablet {
       flex-direction: column;
     }
+    @include large-phone {
+      padding: 30px;
+    }
   }
 
   p {
