@@ -5,7 +5,7 @@ const app = {
     thisApp.pages = document.querySelector('#pages').children;
     thisApp.navLinks = document.querySelectorAll('.nav a');
 
-    const idFromHash = window.location.hash.replace('#', '');
+    const idFromHash = window.location.hash.replace('#/', '');
 
     let pageMatchingHash = thisApp.pages[0].id;
 
@@ -28,6 +28,10 @@ const app = {
         thisApp.activatePage(id);
 
         window.location.hash = '#/' + id;
+
+        window.scrollTo({
+          top: 0,
+        });
       });
     }
   },
@@ -39,7 +43,10 @@ const app = {
     }
 
     for (let link of thisApp.navLinks) {
-      link.classList.toggle('active', link.getAttribute('href') == pageId);
+      link.classList.toggle(
+        'active',
+        link.getAttribute('href') == '#' + pageId
+      );
     }
   },
   initMenu: function () {
@@ -160,8 +167,6 @@ const app = {
     });
   },
   initSwiper: function () {
-    console.log('run carousel:');
-
     //eslint-disable-next-line
     const swiper = new Swiper(".swiper", {
       // Optional parameters
@@ -188,17 +193,47 @@ const app = {
       },
     });
   },
+  initUpdateNumbers: function () {
+    function updateNumbers() {
+      const scrollPosition = window.scrollY || window.pageYOffset;
+      const sectionPosition =
+        document.querySelector('.statistics').offsetTop - 600;
+
+      if (scrollPosition >= sectionPosition) {
+        const counters = document.querySelectorAll('.value');
+        const speed = 200;
+
+        counters.forEach((counter) => {
+          const animate = () => {
+            const value = +counter.getAttribute('akhi');
+            const data = +counter.innerText;
+
+            const time = value / speed;
+            if (data < value) {
+              counter.innerText = Math.ceil(data + time);
+              setTimeout(animate, 75);
+            } else {
+              counter.innerText = value;
+            }
+          };
+
+          animate();
+        });
+      }
+    }
+
+    window.addEventListener('scroll', updateNumbers);
+  },
   init: function () {
     const thisApp = this;
 
-    document.addEventListener('DOMContentLoaded', function () {
-      thisApp.initPages();
-      thisApp.initMenu();
-      setInterval(() => thisApp.initAppearEffect(), 3000);
-      setTimeout(() => {
-        thisApp.initSwiper();
-      }, 1000);
-    });
+    thisApp.initPages();
+    thisApp.initMenu();
+    setInterval(() => thisApp.initAppearEffect(), 3000);
+    setTimeout(() => {
+      thisApp.initSwiper();
+    }, 1000);
+    thisApp.initUpdateNumbers();
   },
 };
 

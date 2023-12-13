@@ -13,7 +13,6 @@ body {
 
 h1 {
   font-weight: 700;
-
   color: $color-white;
   @include adaptive-font(80, 50);
 }
@@ -28,6 +27,12 @@ h3 {
   font-weight: 500;
   line-height: 29px;
   @include adaptive-font(24, 15);
+}
+
+h4 {
+  font-weight: 500;
+  line-height: 29px;
+  @include adaptive-font(20, 14);
 }
 
 %textsmall {
