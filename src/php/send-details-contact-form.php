@@ -10,19 +10,22 @@
 		$body.='Name: '.$_POST['name'].'<br>';
 	}
 	if(trim(!empty($_POST['phone']))) {
-		$body.='Phone: '.$_POST['phone'].'<br>';
+		$body.='Telefonnummer: '.$_POST['phone'].'<br>';
+	}
+	if(trim(!empty($_POST['email']))) {
+		$body.='Email Addresse: '.$_POST['email'].'<br>';
 	}
 	if(trim(!empty($_POST['date']))) {
-		$body.='Date: '.$_POST['date'].'<br>';
+		$body.='Abholdatum: '.$_POST['date'].'<br>';
 	}
 	if(trim(!empty($_POST['from']))) {
-		$body.='From: '.$_POST['from'].'<br>';
+		$body.='Wo: '.$_POST['from'].'<br>';
 	}
 	if(trim(!empty($_POST['to']))) {
-		$body.='To: '.$_POST['to'].'<br>';
+		$body.='Wohin: '.$_POST['to'].'<br>';
 	}
 	if(trim(!empty($_POST['serviceType']))) {
-		$body.='Service type: '.$_POST['serviceType'];
+		$body.='Leistungen: '.$_POST['serviceType'];
 	}
 
 	sendEmail($mail, $body);

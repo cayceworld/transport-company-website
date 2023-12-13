@@ -10,13 +10,13 @@
 		$body.='Name: '.$_POST['name'].'<br>';
 	}
 	if(trim(!empty($_POST['phone']))) {
-		$body.='Phone: '.$_POST['phone'].'<br>';
+		$body.='Telefonnummer: '.$_POST['phone'].'<br>';
 	}
 	if(trim(!empty($_POST['email']))) {
-		$body.='Email: '.$_POST['email'].'<br><br>';
+		$body.='Email Addresse: '.$_POST['email'].'<br><br>';
 	}
 	if(trim(!empty($_POST['message']))) {
-		$body.='Message: '.$_POST['message'];
+		$body.='Nachricht: '.$_POST['message'];
 	}
 
 	sendEmail($mail, $body);
