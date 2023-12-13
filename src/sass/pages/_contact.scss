@@ -1,0 +1,113 @@
+.contact {
+  .contact-form,
+  .form {
+    border-top: none;
+    margin: 0;
+    border-radius: 0;
+    background-color: $color-white;
+    box-shadow: none;
+    padding: 70px 0;
+
+    button {
+      background-color: $color-main;
+      color: $color-white;
+      height: 43px;
+      margin: auto 0 4px 0;
+    }
+
+    form {
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      display: grid;
+      grid: repeat(3, 1fr) / repeat(4, 1fr);
+      grid-template-areas: "block-1 block-2 block-3 block-4"
+        "block-5 block-6 block-7 block-8"
+        "block-9 block-9 block-9 block-9";
+
+      @media screen and (max-width: 980px) {
+        grid: repeat(4, 1fr) / repeat(2, 1fr);
+        grid-template-areas: "block-1 block-2"
+          "block-3 block-4"
+          "block-5 block-6"
+          "block-7 block-8"
+          "block-9 block-9";
+      }
+      @include large-phone {
+        display: flex;
+      }
+    }
+
+    input,
+    textarea,
+    select {
+      max-width: 400px;
+    }
+  }
+
+  .form-box:nth-child(1) {
+    grid-area: block-1;
+  }
+
+  .form-box:nth-child(2) {
+    grid-area: block-2;
+  }
+
+  .form-box:nth-child(3) {
+    grid-area: block-3;
+  }
+
+  .form-box:nth-child(4) {
+    grid-area: block-4;
+  }
+
+  .form-box:nth-child(5) {
+    grid-area: block-5;
+  }
+
+  .form-box:nth-child(6) {
+    grid-area: block-6;
+  }
+
+  .form-box:nth-child(7) {
+    grid-area: block-7;
+  }
+
+  .form-box:nth-child(8) {
+    grid-area: block-8;
+  }
+
+  .form-box:nth-child(9) {
+    grid-area: block-9;
+    align-items: center;
+  }
+}
+
+.contact-data {
+  background-color: $color-silwer-lite;
+
+  &__wrapper {
+    padding: 50px 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+}
+
+.contact-data__wrapper_box {
+  div {
+    a {
+      color: $color-black;
+      @extend %textsubtitle;
+    }
+  }
+
+  td {
+    padding: 2px 10px 2px 0;
+  }
+
+  tr {
+    border: 1px solid #000;
+  }
+}

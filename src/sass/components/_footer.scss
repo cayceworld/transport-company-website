@@ -1,3 +1,42 @@
+.contact-button {
+  background-color: $color-white;
+
+  &__wrapper {
+    padding: 90px 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+
+  p {
+    @extend %textsubtitle;
+    margin-top: 10px;
+  }
+
+  div {
+    flex: 0 0 55%;
+  }
+
+  &__button {
+    color: $color-main;
+    padding: 15px 35px;
+    background-color: $color-yellow;
+    border-radius: 10px;
+    @include adaptive-font(24, 15);
+    align-self: flex-start;
+    flex: 0 0 35%;
+    text-align: center;
+    margin: auto 0;
+  }
+}
+
 .foo {
   background-color: $color-main;
 }
