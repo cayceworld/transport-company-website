@@ -97,6 +97,7 @@
     border-radius: 5px;
     padding: 10px 15px 10px 15px;
     color: #000;
+
     &:focus {
       background-color: #f3f3f3;
     }
@@ -143,6 +144,10 @@
       border: 3px solid $color-silwer-med;
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     }
+  }
+
+  form.sended {
+    display: none;
   }
 }
 

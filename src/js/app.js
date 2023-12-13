@@ -193,42 +193,70 @@ const app = {
       },
     });
   },
-
   initContactForms: function () {
     const thisApp = this;
 
     thisApp.mainContactForm = document.getElementById("mainContactForm");
     thisApp.detailsContactForm = document.getElementById("detailsContactForm");
 
-    const sendForm = async (form, endpoint) => {
-      let formData = new FormData(form);
-      let response = await fetch(endpoint, {
-        method: "POST",
-        body: formData,
-      });
+    thisApp.mainFormContainer = document.querySelector(".about-content__form");
+    thisApp.detaildFormContainer = document.querySelector(".contact-form");
 
-      if (response.ok) {
-        let result = await response.json();
-        alert(result.message); // TODO success displaying
+    const successAlert =
+      "<div class=\"success-alert\">Vielen Dank für Ihr Formular! Wir haben es erhalten und melden uns bald bei Ihnen.</div>";
+    const errorAlert =
+      "<div class=\"error-alert\">Es tut uns leid, aber ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.</div>";
+
+    const sendForm = async (form, endpoint) => {
+      try {
+        let formData = new FormData(form);
+        let response = await fetch(endpoint, {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error("Fehler beim Senden des Formulars");
+        }
+        const container =
+          form === thisApp.mainContactForm
+            ? thisApp.mainFormContainer
+            : thisApp.detaildFormContainer;
+
+        container.classList.add("sended");
+        container.innerHTML = successAlert;
         form.reset();
-      } else {
-        alert("Error"); // TODO error displaying
+      } catch (error) {
+        console.error(error);
+
+        const container =
+          form === thisApp.mainContactForm
+            ? thisApp.mainFormContainer
+            : thisApp.detaildFormContainer;
+
+        container.classList.add("sended");
+        container.innerHTML = errorAlert;
       }
     };
 
     // Post main contact form to /php/send-main-contact-form.php on submit
     thisApp.mainContactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      sendForm(thisApp.mainContactForm, "/php/send-main-contact-form.php");
+      await sendForm(
+        thisApp.mainContactForm,
+        "/php/send-main-contact-form.php"
+      );
     });
 
     // Post details contact form to /php/send-details-contact-form.php on submit
     thisApp.detailsContactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      sendForm(thisApp.detailsContactForm, "/php/send-details-contact-form.php");
+      await sendForm(
+        thisApp.detailsContactForm,
+        "/php/send-details-contact-form.php"
+      );
     });
   },
-
   initUpdateNumbers: function () {
     function updateNumbers() {
       const scrollPosition = window.scrollY || window.pageYOffset;
@@ -260,6 +288,22 @@ const app = {
 
     window.addEventListener("scroll", updateNumbers);
   },
+  initCookiesPermit: function () {
+    const thisApp = this;
+    thisApp.banner = document.getElementById("cookie-banner");
+
+    let cookiesPermited =
+      localStorage.getItem("cookiesPermited") === "true" || false;
+
+    function acceptCookies() {
+      cookiesPermited = true;
+      localStorage.setItem("cookiesPermited", cookiesPermited);
+      thisApp.banner.style.display = "none";
+    }
+
+    const acceptButton = document.getElementById("cookie-button");
+    acceptButton.addEventListener("click", acceptCookies);
+  },
   init: function () {
     const thisApp = this;
 
@@ -272,6 +316,7 @@ const app = {
         thisApp.initSwiper();
       }, 1000);
       thisApp.initUpdateNumbers();
+      thisApp.initCookiesPermit();
     });
   },
 };
