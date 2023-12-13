@@ -198,12 +198,11 @@ const app = {
     const thisApp = this;
 
     thisApp.mainContactForm = document.getElementById("mainContactForm");
+    thisApp.detailsContactForm = document.getElementById("detailsContactForm");
 
-    thisApp.mainContactForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      let formData = new FormData(thisApp.mainContactForm);
-      let response = await fetch("sendmail.php", {
+    const sendForm = async (form, endpoint) => {
+      let formData = new FormData(form);
+      let response = await fetch(endpoint, {
         method: "POST",
         body: formData,
       });
@@ -211,10 +210,22 @@ const app = {
       if (response.ok) {
         let result = await response.json();
         alert(result.message); // TODO success displaying
-        thisApp.mainContactForm.reset();
+        form.reset();
       } else {
         alert("Error"); // TODO error displaying
       }
+    };
+
+    // Post main contact form to /php/send-main-contact-form.php on submit
+    thisApp.mainContactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      sendForm(thisApp.mainContactForm, "/php/send-main-contact-form.php");
+    });
+
+    // Post details contact form to /php/send-details-contact-form.php on submit
+    thisApp.detailsContactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      sendForm(thisApp.detailsContactForm, "/php/send-details-contact-form.php");
     });
   },
 
