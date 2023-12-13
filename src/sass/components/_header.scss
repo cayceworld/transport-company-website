@@ -1,3 +1,9 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
 .upper-nav {
   color: $color-white;
   background-color: $color-dark;
@@ -27,14 +33,12 @@
       background-color: $color-yellow;
       border-radius: 10px;
 
-      
       color: $color-black;
       font-weight: 500;
 
       &:hover {
         color: $color-black;
       }
-      
 
       &:hover {
         transition: 0.7s all ease;
@@ -126,11 +130,13 @@
   position: absolute;
   padding: 15px 30px;
   gap: 10px;
-  top: 147px;
+  top: 148px;
   left: 0;
   width: 100%;
-  border-top: 1px solid $color-silwer-black;
+  border-top: 1px solid $color-silwer-med;
   background-color: $color-main;
+  height: 1000%;
+  opacity: 0.97;
 
   .nav__link {
     height: auto;

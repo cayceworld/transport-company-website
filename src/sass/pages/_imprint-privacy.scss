@@ -1,0 +1,35 @@
+.imprint-content,
+.privacy-content {
+  padding: 30px;
+
+  h3 {
+    padding: 15px 0;
+  }
+
+  h4 {
+    padding: 30px 0 5px 0;
+    font-weight: 600;
+  }
+
+  h5 {
+    padding: 20px 0 5px 0;
+    font-weight: 600;
+  }
+
+  p {
+    @extend %textbasic;
+    color: $color-black;
+  }
+
+  a {
+    color: $color-black;
+  }
+
+  ul {
+    margin: 10px 0 10px 20px;
+  }
+
+  ul li {
+    list-style: square;
+  }
+}
