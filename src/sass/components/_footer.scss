@@ -94,14 +94,34 @@
 .foo-lower {
   background-color: $color-dark;
 
+  span,
+  a {
+    color: $color-white;
+    @extend %textsmall;
+    @include large-phone{
+      font-size: 10px;
+    }
+  }
+
+  span {
+    @include large-phone {
+      display: none;
+    }
+  }
+
   ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: $color-white;
+  }
+
+  .foo-lower__content {
     padding: 5px 30px;
     display: flex;
-    gap: 15px;
-
-    a {
-      color: $color-white;
-      @extend %textsmall;
-    }
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }
