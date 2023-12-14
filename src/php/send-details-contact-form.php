@@ -62,22 +62,22 @@
 	// Constructing body
 	$body = '<b>Korrespondenz von der Website "Bonner Umzug & Transport"</b><br><br>';
 
-	$body .= "<b>Name:</b> $nameField<br>";
-	$body .= "<b>Telefonnummer:</b> $phoneField<br>";
+	$body .= "<b>Name:</b> $nameField";
+	$body .= "<br><b>Telefonnummer:</b> $phoneField";
 
 	if(!empty($emailField)) {
-		$body .= "<b>Email Addresse:</b> $emailField<br>";
+		$body .= "<br><b>Email Addresse:</b> $emailField";
 	}
 
 	if(!empty($dateField)) {
-		$body .= "<b>Abholdatum:</b> $dateField<br>";
+		$body .= "<br><b>Abholdatum:</b> $dateField";
 	}
 
-	$body .= "<b>Wo:</b> $fromField<br>";
-	$body .= "<b>Wohin:</b> $toField<br>";
+	$body .= "<br><b>Wo:</b> $fromField";
+	$body .= "<br><b>Wohin:</b> $toField";
 
 	if (array_key_exists($serviceType, $serviceTypesMap)) {
-		$body.='<b>Leistungen:</b> '.$serviceTypesMap[$serviceType];
+		$body.='<br><b>Leistungen:</b> '.$serviceTypesMap[$serviceType];
 	}
 
 	$response = sendEmail($mail, $body);

@@ -47,15 +47,15 @@
 	// Constructing body
 	$body = '<b>Korrespondenz von der Website "Bonner Umzug & Transport"</b><br><br>';
 
-	$body .= "<b>Name:</b> $nameField<br>";
-	$body .= "<b>Telefonnummer:</b> $phoneField<br>";
+	$body .= "<b>Name:</b> $nameField";
+	$body .= "<br><b>Telefonnummer:</b> $phoneField";
 
 	if(!empty($emailField)) {
-		$body .= "<b>Email Addresse:</b> $emailField<br><br>";
+		$body .= "<br><b>Email Addresse:</b> $emailField";
 	}
 
 	if(!empty($messageField)) {
-		$body .= "<b>Nachricht:</b> <i>$messageField</i>";
+		$body .= "<br><br><b>Nachricht:</b> <i>$messageField</i>";
 	}
 
 	$response = sendEmail($mail, $body);
