@@ -289,15 +289,18 @@ const app = {
     window.addEventListener("scroll", updateNumbers);
   },
   initCookiesPermit: function () {
+    let cookiesPermited = localStorage.getItem("cookiesPermited") === "true";
+
+    // Skip initializing if already permited
+    if (cookiesPermited) return;
+
     const thisApp = this;
     thisApp.banner = document.getElementById("cookie-banner");
 
-    let cookiesPermited =
-      localStorage.getItem("cookiesPermited") === "true" || false;
-
+    // Show and attach handler if not already permited
+    thisApp.banner.style.display = "block";
     function acceptCookies() {
-      cookiesPermited = true;
-      localStorage.setItem("cookiesPermited", cookiesPermited);
+      localStorage.setItem("cookiesPermited", true);
       thisApp.banner.style.display = "none";
     }
 
