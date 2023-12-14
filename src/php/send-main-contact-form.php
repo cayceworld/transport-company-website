@@ -45,7 +45,7 @@
 	}
 	
 	// Constructing body
-	$body = '<b>Korrespondenz von der Website "Bonner Umzug & Transport"</b><br><br>';
+	$body = '<b>Korrespondenz von der Website "Moversbonn & Transport"</b><br><br>';
 
 	$body .= "<b>Name:</b> $nameField";
 	$body .= "<br><b>Telefonnummer:</b> $phoneField";
