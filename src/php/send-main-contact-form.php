@@ -5,7 +5,7 @@
 	$mail = configureMailer($config);
 	
 	// Constructing body
-	$body = '<b>Korrespondenz von der Website "Bonner Umzug & Transport"</b><br>';
+	$body = '<b>Korrespondenz von der Website "Moversbonn & Transport"</b><br>';
 
 	if(trim(!empty($_POST['name']))) {
 		$body.='Name: '.$_POST['name'].'<br>';

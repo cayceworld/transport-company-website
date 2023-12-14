@@ -133,7 +133,7 @@ header {
   position: absolute;
   padding: 15px 30px;
   gap: 10px;
-  top: 148px;
+  top: 109px;
   left: 0;
   width: 100%;
   border-top: 1px solid $color-silwer-med;
@@ -147,7 +147,7 @@ header {
   }
 
   @include large-phone {
-    top: 78px;
+    top: 49px;
   }
 }
 
