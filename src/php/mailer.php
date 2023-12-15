@@ -46,7 +46,12 @@
         $response = ['message' => 'Request sent!'];
     }
 
-    header('Content-type: application/json');
-    echo json_encode($response);
+    return $response;
+  }
+
+  function sanitizeInput($input) {
+    $input = trim($input);
+    $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+    return $input;
   }
 ?>
