@@ -60,7 +60,7 @@
 	}
 
 	// Constructing body
-	$body = '<b>Korrespondenz von der Website "Moversbonn"</b><br><br>';
+	$body = '<b>Anfrage von der Website "Moversbonn"</b><br><br>';
 
 	$body .= "<b>Name:</b> $nameField";
 	$body .= "<br><b>Telefonnummer:</b> $phoneField";
@@ -73,8 +73,8 @@
 		$body .= "<br><b>Abholdatum:</b> $dateField";
 	}
 
-	$body .= "<br><b>Wo:</b> $fromField";
-	$body .= "<br><b>Wohin:</b> $toField";
+	$body .= "<br><b>Von:</b> $fromField";
+	$body .= "<br><b>Nach:</b> $toField";
 
 	if (array_key_exists($serviceType, $serviceTypesMap)) {
 		$body.='<br><b>Leistungen:</b> '.$serviceTypesMap[$serviceType];
