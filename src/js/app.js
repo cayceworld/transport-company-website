@@ -131,17 +131,17 @@ const app = {
 
             <div class="profile">
               <a class="author" target="_blank" href="${
-  place.reviews[i].author_url
-}">
+                place.reviews[i].author_url
+              }">
                   <img class="photo" src="${
-  place.reviews[i].profile_photo_url
-}" alt="Profile Photo">
+                    place.reviews[i].profile_photo_url
+                  }" alt="Profile Photo">
                   <p class="authortitle">${place.reviews[i].author_name}</p>
               </a>
   
               <a class="tag" target="_blank" href="${
-  place.reviews[i].author_url
-}">
+                place.reviews[i].author_url
+              }">
                   <img class="google-ico" src="../images/google.svg" alt="Google Logo">
               </a>
             </div>
@@ -151,8 +151,8 @@ const app = {
                     ${stargetter(place.reviews[i].rating)}
                 </div>
                 <div class="time-descr">${
-  place.reviews[i].relative_time_description
-}</div>
+                  place.reviews[i].relative_time_description
+                }</div>
             </div>
 
             
@@ -203,9 +203,9 @@ const app = {
     thisApp.detaildFormContainer = document.querySelector(".contact-form");
 
     const successAlert =
-      "<div class=\"success-alert\">Vielen Dank für Ihr Formular! Wir haben es erhalten und melden uns bald bei Ihnen.</div>";
+      '<div class="success-alert">Vielen Dank für Ihr Formular! Wir haben es erhalten und melden uns bald bei Ihnen.</div>';
     const errorAlert =
-      "<div class=\"error-alert\">Es tut uns leid, aber ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.</div>";
+      '<div class="error-alert">Es tut uns leid, aber ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.</div>';
 
     const sendForm = async (form, endpoint) => {
       try {
@@ -226,6 +226,12 @@ const app = {
         container.classList.add("sended");
         container.innerHTML = successAlert;
         form.reset();
+
+        const targetScroll = container.offsetTop - 130;
+        window.scrollTo({
+          top: targetScroll,
+          behavior: "smooth",
+        });
       } catch (error) {
         console.error(error);
 
@@ -236,6 +242,12 @@ const app = {
 
         container.classList.add("sended");
         container.innerHTML = errorAlert;
+
+        const targetScroll = container.offsetTop - 130;
+        window.scrollTo({
+          top: targetScroll,
+          behavior: "smooth",
+        });
       }
     };
 

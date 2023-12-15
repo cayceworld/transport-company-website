@@ -151,6 +151,22 @@
   }
 }
 
+.error-alert,
+.success-alert {
+  padding: 30px;
+  font-size: 18px;
+  text-align: center;
+  border: 3px solid $color-yellow;
+  background-color: #fff;
+  border-radius: 24px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.error-alert,
+.success-alert {
+}
+
 .title-box {
   text-align: center;
 
